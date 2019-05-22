@@ -75,3 +75,56 @@ const findOdd = (xs) => xs.reduce((a,b) => a ^ b)
 3. a ^ b  0001 ^ 0010  = 0011 
 4. a^b^a 0011 ^ 0001 = 0010
 5. 所以使用这种方法的前提是该数组中有且只有1个出现奇数次的项
+
+# 第五题
+
+写一个函数，第一个参数str，第二个参数是array,获取数组中跟str组成字母相同的所有项？
+
+个人完成版本：
+
+```javascript
+const anagrams = (w1,w2) => {
+  let arr = []
+  w2.forEach(item => {
+    item.split('').sort().join() === w1.split('').sort().join()?arr.push(item):null;
+  })
+  return arr
+}
+```
+
+点赞最多的版本：
+
+```javascript
+String.prototype.sort = function(){
+  return this.split('').sort().join('')
+}
+const anagrams = (w1,w2) =>{
+  return w2.filter( item => {
+    return item.sort() === w1.sort()
+  })
+}
+```
+
+知识点：
+
+1. 字符串没有sort()方法，给其原型上绑定一个sort方法执行字符串排序
+2. filter返回的是一个满足条件的数组
+
+# 第六题
+
+获取一个整数所有的能被3和5整除的数的和？
+
+个人版本：
+
+```javascript
+const solution = (num) => {
+ let sum = 0;
+ for(let i=0;i < num; i++){
+   if( !(i % 3 ) || !(i % 5)){
+     sum += i;
+   }
+ }
+ return sum;
+}
+```
+
