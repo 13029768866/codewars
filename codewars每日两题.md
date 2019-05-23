@@ -128,3 +128,46 @@ const solution = (num) => {
 }
 ```
 
+# 第七题
+
+判断一个数字是否是偶数？
+
+个人版本：
+
+```javascript
+const even_or_odd = num => {
+  num = Math.floor(num)
+  return  !(num % 2) ? 'Even':'Odd';
+}
+```
+
+# 第八题
+
+给定一个字符串，如果字符串长度是偶数截取中间2位，如果字符串式长度是奇数，截取中间1位的函数？
+
+个人版本：
+
+```javascript
+const getMiddle = (words) => {
+  let getIdx = Math.floor(words.length / 2)
+  return !(words.length % 2) ? 
+  words.slice(getIdx - 1 , getIdx + 1):
+  words.slice(getIdx , getIdx + 1)
+}
+```
+
+改进版本：
+
+```javascript
+const getMiddle = (s) => {
+  return s.substr(Math.ceil(s.length / 2 - 1),!(s.length % 2)?2:1)
+}
+```
+
+知识点：
+
+1. 截取字符串方法`substr`,`substring`,`slice`
+2. 一参索引到最后，二参包左不包右
+3. `substr`,一参索引，二参截取个数
+4. `substring`两个参数都是索引
+5. `slice`可以倒着截取输入`-`负号
