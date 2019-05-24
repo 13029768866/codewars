@@ -178,3 +178,32 @@ const getMiddle = (s) => {
 let opposite = num => -num
 ```
 
+# 十、accum("abcd") -> "A-Bb-Ccc-Dddd"
+
+个人版本：
+
+```javascript
+let accum = s =>{
+let res = ''
+  s.split('').map((item,idx) => {
+    res += item.toUpperCase()
+     for(let i =0;i<idx;i++){
+       res += item.toLowerCase()
+     }
+     return res += '-'
+  })
+  return  res.slice(0,res.length -1)
+}
+```
+
+升级进阶版本：
+
+```javascript
+let accum = (s) => s.split('').map((item,idx) => item.toUpperCase() + item.toLowerCase().repeat(idx)).join('-')
+```
+
+知识点：
+
+1. 字符大小写转化，toUpperCase、toLowerCase
+2. `repeat()`方法不能传入 `负数`，`Infinity`,传入小数向下取整
+
