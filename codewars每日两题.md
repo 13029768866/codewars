@@ -213,3 +213,25 @@ let accum = (s) => s.split('').map((item,idx) => item.toUpperCase() + item.toLow
 const disemvowel = str => str.replace(/[aeiou]/ig, '')
 ```
 
+# 第十二题、获取字符串最大值或最小值
+
+个人版本：
+
+```javascript
+String.prototype.sort = function(){
+  return this.split(' ').sort((a,b)=> a-b)
+}
+const highAndLow = str => str.sort()[str.sort().length - 1] + ' ' + str.sort()[0]
+```
+
+升级进阶版本：
+
+```javascript
+const highAndLow = str =>{
+    arr = str.split(' ')
+    // 也可以把数组中的类型转换成Number
+    //	arr = str.split(' ').map(Number)
+    return Math.max.apply('',arr) + ' ' +Math.min.apply('',arr)
+}
+```
+
