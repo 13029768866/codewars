@@ -4,7 +4,7 @@
 
 ```javascript
 function getCount(str) {
-  return (str.match(/[a,e,i,o,u]/ig) || []).length
+  return (str.match(/[aeiou]/ig) || []).length
 }
 ```
 
@@ -206,4 +206,10 @@ let accum = (s) => s.split('').map((item,idx) => item.toUpperCase() + item.toLow
 
 1. 字符大小写转化，toUpperCase、toLowerCase
 2. `repeat()`方法不能传入 `负数`，`Infinity`,传入小数向下取整
+
+# 第十一题、删除原因字符
+
+```javascript
+const disemvowel = str => str.replace(/[aeiou]/ig, '')
+```
 
