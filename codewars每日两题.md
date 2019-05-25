@@ -235,3 +235,13 @@ const highAndLow = str =>{
 }
 ```
 
+# 第十三题、检测一个数字是否可以完全开方
+
+```javascript
+const isSquare = n => Number.isInteger(Math.sqrt(n))
+```
+
+知识点：
+
+1. Math.sqrt()执行开方运算
+2. Number.isInteger()判断是否为一个整数
