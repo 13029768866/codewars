@@ -245,3 +245,12 @@ const isSquare = n => Number.isInteger(Math.sqrt(n))
 
 1. Math.sqrt()执行开方运算
 2. Number.isInteger()判断是否为一个整数
+
+# 第十四题、把字符串中每一个单词的首字母大写
+
+```javascript
+String.prototype.toJadenCase = function () {
+ return this.toLowerCase().replace(/( |^)[a-z]/g,L => L.toUpperCase())
+};
+```
+
