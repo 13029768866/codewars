@@ -207,7 +207,7 @@ let accum = (s) => s.split('').map((item,idx) => item.toUpperCase() + item.toLow
 1. 字符大小写转化，toUpperCase、toLowerCase
 2. `repeat()`方法不能传入 `负数`，`Infinity`,传入小数向下取整
 
-# 第十一题、删除原因字符
+# 第十一题、删除元音字符
 
 ```javascript
 const disemvowel = str => str.replace(/[aeiou]/ig, '')
@@ -268,7 +268,7 @@ return Number(res)
 }
 ```
 
-# 第十六题、不考虑数据类型，字符串不为空的情况下获取最短word
+# 第十六题、不考虑数据类型，字符串不为空的情况下获取最短word的长度
 
 个人版本：
 
