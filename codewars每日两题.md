@@ -254,3 +254,25 @@ String.prototype.toJadenCase = function () {
 };
 ```
 
+# 第十五提、获取一个数字每位数平方拼接的字符串
+
+个人完成版本：
+
+```javascript
+let squareDigits = num => {
+let res = ''
+num.toString().split('').map(item => {
+  res += Math.pow(Number(item),2)
+})
+return Number(res)
+}
+```
+
+# 第十六题、不考虑数据类型，字符串不为空的情况下获取最短word
+
+个人版本：
+
+```javascript
+let findShort = s => Math.min.apply('',s.split(' ').map(item => item.length))
+```
+
