@@ -276,3 +276,13 @@ return Number(res)
 let findShort = s => Math.min.apply('',s.split(' ').map(item => item.length))
 ```
 
+# 第十七题、比较一个字符串中两个给定字符的出现次数是否相等？
+
+```javascript
+let XO = s => {
+  let x = s.match(/x/ig)
+  let o = s.match(/o/ig)
+  return (x && x.length)  === (o && o.length)
+}
+```
+
