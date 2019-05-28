@@ -286,3 +286,48 @@ let XO = s => {
 }
 ```
 
+# 第十八题、数字各个位数相加求和，直到和为一位数时输出结果？
+
+```javascript
+let digital_root = n =>  { 
+let sum = 0;
+String(n).split('').map(item => sum += Number(item))
+if(String(sum).length == 1){
+  return sum 
+}else{
+return digital_root(sum)
+}
+}
+```
+
+**你不知道为什么，但是就是 感觉很牛逼的版本**
+
+```javascript
+let digital_root = n => (n - 1)%9 - 1
+```
+
+# 第十九题、数字反转?
+
+```javascript
+let descendingOrder = n => Number(n.toString().split('').sort((a,b)=>b-a).join(''))
+```
+
+# 第二十题、给定一个只有字符和空格组成的字符串，把之中字符长度在5以上的字符串反转？
+
+个人版本：
+
+```javascript
+String.prototype.strReverse= function(){
+  return this.split('').reverse().join('')
+}
+let spinWords = s =>{ 
+  s.split(' ').map(item => {
+   if(item.length >= 5){
+     let re = new RegExp(item,'g')
+     return s = s.replace(re, item.strReverse())
+   }    
+  })
+  return s
+}
+```
+
