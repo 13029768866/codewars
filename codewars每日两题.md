@@ -331,3 +331,9 @@ let spinWords = s =>{
 }
 ```
 
+进阶优化版本：
+
+```javascript
+let spinWords = s => s.replace(/\w{5,}/g, S => S.split('').reverse().join(''))
+```
+
