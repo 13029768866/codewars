@@ -172,13 +172,13 @@ const getMiddle = (s) => {
 4. `substring`两个参数都是索引
 5. `slice`可以倒着截取输入`-`负号
 
-# 九、获取数字的相反数
+# 第九题、获取数字的相反数
 
 ```javascript
 let opposite = num => -num
 ```
 
-# 十、accum("abcd") -> "A-Bb-Ccc-Dddd"
+# 第十题、accum("abcd") -> "A-Bb-Ccc-Dddd"
 
 个人版本：
 
@@ -335,5 +335,18 @@ let spinWords = s =>{
 
 ```javascript
 let spinWords = s => s.replace(/\w{5,}/g, S => S.split('').reverse().join(''))
+```
+
+# 第二十一题、给定一个数组（至少3项），如果是偶数数组只有一个奇数，如果是奇数数组只有一个偶数，获取其值？
+
+个人完成版本：
+
+```javascript
+let findOutlier = intergers =>{
+  let  filterArr = intergers.filter(item => item % 2)
+  return  filterArr.length > 1?
+          intergers.filter(item => !(item %2))[0]:
+          filterArr[0];
+}
 ```
 
