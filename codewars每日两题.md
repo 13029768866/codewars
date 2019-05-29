@@ -350,3 +350,37 @@ let findOutlier = intergers =>{
 }
 ```
 
+# 第二十二题、给定两个整数，求所有之间所有整数的和？
+
+感觉自己是个弱智版本：
+
+```javascript
+let GetSum = (a,b) =>{
+ if(a === b){ return a}
+ if( Math.abs(a) === b ||  a === Math.abs(b)){
+   return 0;
+ }
+ if(a < b){
+   let sum = 0
+   for(let i=a;i<=b;i++){
+     sum += i;
+     if(i == b){
+       return sum;
+     }
+   }   
+ }else if (a  > b){
+   let sum = 0;
+   for(let i = b;i <= a;i++){
+     sum += i;
+     if(i == a){
+       return sum
+     }
+   }
+```
+
+**智商在线版本**
+
+```javascript
+ let GetSum =(a,b) => (Math.abs(a - b) + 1) * (a+b) / 2;
+```
+
