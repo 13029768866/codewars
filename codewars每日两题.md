@@ -427,3 +427,13 @@ let likes = names => [
 知识点：
 
 1. 运用ES6运算符，和template语法实现，通过Math.min实现对索引的操纵。
+
+# 第二十三题、获取一个数字二进制中1的个数？
+
+```javascript
+let countBits = n => (n.toString(2).match(/[1]/g)|| []).length
+```
+
+知识点：
+
+1. toString(2)把数字转化成二进制
