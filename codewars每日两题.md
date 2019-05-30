@@ -384,3 +384,46 @@ let GetSum = (a,b) =>{
  let GetSum =(a,b) => (Math.abs(a - b) + 1) * (a+b) / 2;
 ```
 
+# 第二十三题、写一个函数实现下列功能？
+
+```javascript
+likes [] // must be "no one likes this"
+likes ["Peter"] // must be "Peter likes this"
+likes ["Jacob", "Alex"] // must be "Jacob and Alex like this"
+likes ["Max", "John", "Mark"] // must be "Max, John and Mark like this"
+likes ["Alex", "Jacob", "Mark", "Max"] // must be "Alex, Jacob and 2 others like this"
+```
+
+个人完成if--else版本：
+
+```javascript
+let likes = name => {
+  if(name.length == 0){
+    return "no one likes this"
+  }else if(name.length == 1){
+    return name[0] + ' likes this'
+  }else if(name.length == 2){
+    return name[0] + ' and ' + name[1] + ' like this'
+  }else if(name.length == 3){
+   return name[0] + ', '+name[1] + ' and ' +name[2] + ' like this'
+  }else{
+     return name[0] + ', ' + name[1] + ' and ' + Number(name.length - 2) +' others like this'
+  }
+}
+```
+
+进阶版本：
+
+```javascript
+let likes = names => [
+  'no one likes this',
+  `${names[0]} likes this`,
+  `${names[0]} and ${names[1]} like this`,
+  `${names[0]}, ${names[1]} and ${names[2]} like this`,
+  `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+][Math.min(4,names.length)]
+```
+
+知识点：
+
+1. 运用ES6运算符，和template语法实现，通过Math.min实现对索引的操纵。
