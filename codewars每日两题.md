@@ -428,7 +428,7 @@ let likes = names => [
 
 1. 运用ES6运算符，和template语法实现，通过Math.min实现对索引的操纵。
 
-# 第二十三题、获取一个数字二进制中1的个数？
+# 第二十四题、获取一个数字二进制中1的个数？
 
 ```javascript
 let countBits = n => (n.toString(2).match(/[1]/g)|| []).length
@@ -438,9 +438,46 @@ let countBits = n => (n.toString(2).match(/[1]/g)|| []).length
 
 1. toString(2)把数字转化成二进制
 
-# 第二十四题、获取整数数组中所有正整数的和？
+# 第二十五题、获取整数数组中所有正整数的和？
 
 ```javascript
 const positiveSum = arr => arr.reduce((prev,cur) => prev + (cur > 0? cur: 0),0)
+```
+
+# 第二十六题、给一个数字，如果各个位数相乘不是个位数，继续相乘，知道是个位数位置，请写一个函数输出计算次数？
+
+```javascript
+ persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
+// and 4 has only one digit
+persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
+// 1*2*6 = 12, and finally 1*2 = 2
+persistence(4) === 0 // because 4 is already a one-digit number
+```
+
+```javascript
+let persistence = (num,crr) => {  
+  if(num.toString().split('').length <= 1){
+    return 0
+  }
+  let mul = 1 ,
+      count = crr || 0;
+  num.toString().split('').map(item => mul *= item)
+  if(mul.toString().split('').length > 1){
+    count++
+    return persistence(mul,count)
+  }else{
+    return count + 1;
+  }  
+}
+```
+
+reduece优化版本：
+
+```javascript
+const persistence = num => {
+  return `${num}`.length > 1?
+      1 + persistence(`${num}`.split('').reduce((a,b) => a * b))
+      : 0;    
+}
 ```
 
