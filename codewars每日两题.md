@@ -437,3 +437,10 @@ let countBits = n => (n.toString(2).match(/[1]/g)|| []).length
 知识点：
 
 1. toString(2)把数字转化成二进制
+
+# 第二十四题、获取整数数组中所有正整数的和？
+
+```javascript
+const positiveSum = arr => arr.reduce((prev,cur) => prev + (cur > 0? cur: 0),0)
+```
+
