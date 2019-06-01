@@ -481,3 +481,23 @@ const persistence = num => {
 }
 ```
 
+# 第二十七题、获取数组中类型是Number的项组成新数组？
+
+```javascript
+const filter_list = l => l.filter(item => Number.isInteger(item))
+```
+
+# 第二十八题、createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
+
+个人版本：es6+模板字符串
+
+```javascript
+const createPhoneNumber = num =>`${num.slice(0,3).join('')}` ${num.slice(3,6)-${num.slice(6).join('')}}
+```
+
+正则方式：
+
+```javascript
+const createPhoneNumber = nums => nums.join('').replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3')
+```
+
