@@ -501,3 +501,43 @@ const createPhoneNumber = num =>`${num.slice(0,3).join('')}` ${num.slice(3,6)-${
 const createPhoneNumber = nums => nums.join('').replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3')
 ```
 
+# 第二十九题、给定两个数组，获取A数组中独有的项？
+
+题目实例：
+
+array_diff([1,2,2,2,3],[2]) == [1,3]
+
+
+
+个人初始版本：
+
+1. 判断两种极端状况，然后统一处理
+
+```javascript
+const array_diff = (a,b) => {
+  if(!(a.length)){
+    return []
+  }else if(!(b.length)){
+    return a
+  }
+  for(let i = 0;i < b.length;i++){
+    a = a.filter(item => item != b[i]) 
+  }
+  return a;
+}
+```
+
+优化版本：
+
+1、数组查询字符串Array.prototype.includes()
+
+```javascript
+const array_diff = (a,b) => a.filter(item => !(b.includes(item)))
+```
+
+2、数组查询字符串Array.prototype.indexOf()
+
+```javascript
+const array_diff = (a,b) => a.filter(item => b.indexOf(item) === -1)
+```
+
