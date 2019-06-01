@@ -541,3 +541,9 @@ const array_diff = (a,b) => a.filter(item => !(b.includes(item)))
 const array_diff = (a,b) => a.filter(item => b.indexOf(item) === -1)
 ```
 
+# 第三十题、写一个函数，两个参数，让字符串重复多次？
+
+```javascript
+const repeatStr = (n,s) => s.repeat(n)
+```
+
