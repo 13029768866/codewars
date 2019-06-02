@@ -553,3 +553,34 @@ const repeatStr = (n,s) => s.repeat(n)
 let isTriangle = (a,b,c)  => a+b>c && b+c>a && a+c>b
 ```
 
+# 第三十二题、人数增长问题？
+
+题目：
+
+**在一个小镇上，人口在年初是p0 = 1000。人口每年定期增长2%，而且每年有50名新居民来此居住。这个城镇的人口需要多少年才能超过或等于p = 1200居民?**
+
+个人版本：
+
+```javascript
+let nbYear = (p0,percent,aug,p,y)  =>{
+  let year =  y  || 1;
+  p0 = p0 + (p0 * percent / 100)  + aug
+  if(p0 < p){
+   year++
+   return nbYear(p0,percent,aug,p,year)
+  }
+  return year
+}
+```
+
+借鉴优化版本：
+
+```javascript
+let nbYear = (p0,percent,aug,p) => {
+  for(var y = 0; p0 < p; y++){
+    p0 = p0 + (p0 * percent / 100) + aug
+  }
+  return y
+}
+```
+
