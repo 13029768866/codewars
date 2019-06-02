@@ -547,3 +547,9 @@ const array_diff = (a,b) => a.filter(item => b.indexOf(item) === -1)
 const repeatStr = (n,s) => s.repeat(n)
 ```
 
+# 第三十一题、给定三个正整数，判断能否组成正方形？
+
+```javascript
+let isTriangle = (a,b,c)  => a+b>c && b+c>a && a+c>b
+```
+
