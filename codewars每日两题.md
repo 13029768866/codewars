@@ -584,3 +584,32 @@ let nbYear = (p0,percent,aug,p) => {
 }
 ```
 
+# 第三十三题、散步问题？
+
+问题：
+
+```
+你住在一个叫Cartesia的城市里，所有的道路都被布置成一个完美的网格。你比约定的时间早到了十分钟，所以你决定抓住这个机会出去散一会儿步。这座城市为市民提供了一款手机上的步行生成应用程序——每次你按下这个按钮，它都会向你发送一个由一个字母组成的字符串组成的数组，这些字符串代表步行的方向(例如，“步行”)。['n'， 's'， 'w'， 'e'])。你总是只有一个块的方向走,你知道你需要一分钟的时间穿过一个街区,所以创建一个函数,该函数会返回true,如果走程序给你将你到底十分钟(你不想早或晚!)和意志,当然,你回到你的起点。否则返回假。
+```
+
+个人初始版本：
+
+```javascript
+const isValidWalk = walk => {
+let nArr =  walk.filter(item => item == 'n'),
+    sArr =  walk.filter(item => item == 's'),
+    wArr =  walk.filter(item => item == 'w'),
+    eArr =  walk.filter(item => item == 'e')
+return (nArr.length === sArr.length)  && (wArr.length === eArr.length) && walk.length == 10
+}
+```
+
+优化进阶版本：
+
+```javascript
+let isValidWalk = walk => {
+  let dirChoose = direction => walk.filter(item => item == direction).length
+  return walk.length == 10 && (dirChoose('n') === dirChoose('s')) && (dirChoose('w') === dirChoose('e'))
+}
+```
+
