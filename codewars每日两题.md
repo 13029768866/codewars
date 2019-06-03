@@ -658,3 +658,26 @@ let sumTwoSmallestNumbers = nums => {
 let makeNegative = num => -Math.abs(num)
 ```
 
+# 第三十七题、检测一个字符粗是否有重复的字母？
+
+个人版本：
+
+```javascript
+let isIsogram = str => str.toLowerCase() == [...new Set(str.toLowerCase().split(''))].join('')
+```
+
+吸收大佬经验的进阶版本：
+
+```javascript
+let isIsogram = str => [...new Set(str.toLowerCase())].length == str.length
+```
+
+大佬告诉你，正则到底可以多么优雅：
+
+```javascript
+let isIsogram = str => !/(\w).*\1/i.test(str)
+```
+
+知识点：
+
+1. 英文字母只出现一次匹配正则 `!/(\w).*\1/i`
