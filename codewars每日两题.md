@@ -650,3 +650,11 @@ let sumTwoSmallestNumbers = nums => {
 }
 ```
 
+# 第三十六题、返回一个数的负数？
+
+个人版本：
+
+```javascript
+let makeNegative = num => -Math.abs(num)
+```
+
