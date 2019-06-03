@@ -630,3 +630,23 @@ let songDecoder = song => {
 }
 ```
 
+# 第三十五题、至少4项的非空数组最小两个数求和？
+
+个人版本：
+
+```javascript
+let sumTwoSmallestNumbers = nums => {
+  nums.sort((a,b) => a - b)
+  return nums[0] + nums[1]
+}
+```
+
+更骚一点的版本：
+
+```javascript
+let sumTwoSmallestNumbers = nums => {
+  let [a,b] = nums.sort((a,b) => a - b)
+  return a + b;
+}
+```
+
