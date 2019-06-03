@@ -613,3 +613,20 @@ let isValidWalk = walk => {
 }
 ```
 
+# 第三十四题、字符串replace，正则使用？
+
+题目示例：
+
+```javascript
+songDecoder("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDWUB")
+// =>  WE ARE THE CHAMPIONS MY FRIEND
+```
+
+个人版本：
+
+```javascript
+let songDecoder = song => {
+ return  song.replace(/(WUB)+/g,' ').trim()
+}
+```
+
