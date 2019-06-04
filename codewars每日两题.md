@@ -727,3 +727,21 @@ let tribonacci = (arr , n) => {
 }
 ```
 
+# 第三十八题、获取下一个可开方数？
+
+示例：
+
+```javascript
+findNextSquare(121) --> returns 144
+findNextSquare(625) --> returns 676
+findNextSquare(114) --> returns -1 since 114 is not a perfect
+```
+
+一发入魂的最优版本：
+
+```javascript
+let findNextSquare = sq => Number.isInteger(Math.sqrt(sq))?
+ Math.pow(Math.sqrt(sq)+1,2):
+ -1;
+```
+
