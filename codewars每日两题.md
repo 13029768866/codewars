@@ -681,3 +681,49 @@ let isIsogram = str => !/(\w).*\1/i.test(str)
 知识点：
 
 1. 英文字母只出现一次匹配正则 `!/(\w).*\1/i`
+
+# 第三十八题、给定两个参数，第一个是至少3位的数组，第二个是数组长度，数组从第4项开始，每一项是前3项的和，写一个函数？
+
+例题：
+
+```javascript
+Test.assertSimilar(tribonacci([1,1,1],1),[1])
+Test.assertSimilar(tribonacci([300,200,100],0),[])
+Test.assertSimilar(tribonacci([1,1,1],10),[1,1,1,3,5,9,17,31,57,105])
+```
+
+个人初始完成笨比版本：
+
+```javascript
+let tribonacci  = (arr , count) => {
+  if(count == 0 ){
+    return []
+  }else if(arr.length >= count){
+    return arr.slice(0,count )
+  }else if(arr.length < count){
+    for(let i = arr.length; i < count;i++){
+     let sum = 0
+     arr.slice(arr.length - 3).map(item => {
+        return sum += item
+      })
+      arr.push(sum)
+    }
+    return arr
+  }
+}
+```
+
+优化版本：
+
+1. 第二个参数是数组长度，通过遍历补全数组
+2. 从这个数组截取长度
+
+```javascript
+let tribonacci = (arr , n) => {
+  for(let i = 0; i < n - 3;i++){
+    arr.push(arr[i] + arr[i+1] + arr[i+2])
+  }
+  return arr.slice(0,n)
+}
+```
+
