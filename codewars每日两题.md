@@ -745,3 +745,47 @@ let findNextSquare = sq => Number.isInteger(Math.sqrt(sq))?
  -1;
 ```
 
+# 第三十九题、字符串去重变换？
+
+示例：
+
+```javascript
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+```
+
+个人完成版本：
+
+```javascript
+var duplicateEncode = word => {
+  let obj = {}
+  word.toLowerCase().split('').map(item => {
+  return  obj.hasOwnProperty(item)?
+    obj[item]++:
+    obj[item] = 1;
+  })
+  
+ let newArr =  word.toLowerCase().split('').map(item =>{
+    if(obj[item] > 1){
+      return  item = ")"
+     }else{
+      return item = '('
+     }
+  })
+  return newArr.join('')
+}
+```
+
+优化思路 ：
+
+1. 如果是该字符串中唯一的字符，所以是唯一的及indeOf() == lastIndexOf()
+
+```javascript
+let duplicateEncode = word => {
+word = word.toLowerCase()
+return word.replace(/./g,L=>word.indexOf(L) === word.lastIndexOf(L)? '(':')')
+}
+```
+
