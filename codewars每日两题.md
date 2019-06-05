@@ -789,3 +789,37 @@ return word.replace(/./g,L=>word.indexOf(L) === word.lastIndexOf(L)? '(':')')
 }
 ```
 
+# 四十题、获取字符串中出现多次字符的个数？
+
+示例：
+
+```javascript
+Test.assertEquals(duplicateCount(""), 0);
+Test.assertEquals(duplicateCount("abcde"), 0);
+Test.assertEquals(duplicateCount("aabbcde"), 2);
+Test.assertEquals(duplicateCount("aabBcde"), 2,"should ignore case");
+Test.assertEquals(duplicateCount("Indivisibility"), 1)
+Test.assertEquals(duplicateCount("Indivisibilities"), 2, "characters may not be adjacent")
+```
+
+个人完成版本：
+
+```javascript
+let duplicateCount = text => {
+ let arr = []
+ text = text.toLowerCase().split('')
+ text.map(item => {
+   !(text.indexOf(item) == text.lastIndexOf(item))?
+     arr.push(item):
+     '';   
+ })
+ return [...new Set(arr)].length
+}
+```
+
+吸收经验，进阶 优化版本：
+
+```js
+let duplicateCount = text => (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length
+```
+
