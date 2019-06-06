@@ -850,3 +850,33 @@ return
 let uniqueInOrder = it => [...it].filter((item,idx) => item != it[idx - 1])
 ```
 
+# 第四十二题、带数字字符串，按数字顺序排序
+
+示例
+
+```js
+"is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+"4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+""  -->  ""
+```
+
+个人版本：
+
+```js
+let order = words => {
+  let arr = [];
+   for(let i = 1; i <=  words.length;i++){
+     words.split(' ').map((item,idx) => {
+       item.includes(i)?arr.push(item): '';
+     })
+   }
+  return arr.join(' ')
+}
+```
+
+进化版本：
+
+```js
+let order = words => words.split(' ').sort((a,b) => a.match(/\d/)  - b.match(/\d/)).join(' ')
+```
+
