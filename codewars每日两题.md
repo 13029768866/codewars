@@ -823,3 +823,30 @@ let duplicateCount = text => {
 let duplicateCount = text => (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length
 ```
 
+# 第四十一题、数组、字符串连续出现去重？
+
+示例：
+
+```js
+uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+uniqueInOrder([1,2,2,3,3])       == [1,2,3]
+```
+
+个人版本：
+
+```javascript
+let uniqueInOrder = (it) =>{
+return  
+  typeof(it) == 'string'?
+  it.split('').filter((item,idx) => item != it.split('')[idx + 1]):
+  it.filter((item,idx) => item != it[idx - 1]);
+}
+```
+
+优化版本：
+
+```js
+let uniqueInOrder = it => [...it].filter((item,idx) => item != it[idx - 1])
+```
+
