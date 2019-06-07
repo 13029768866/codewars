@@ -898,3 +898,29 @@ let numToString = num => num.toString()
 let removeChar = str => str.slice(1,-1)
 ```
 
+# 第四十六题、号码部分加密？
+
+示例：
+
+```js
+Test.assertEquals(maskify('4556364607935616'), '############5616');
+    Test.assertEquals(maskify('1'), '1');
+    Test.assertEquals(maskify('11111'), '#1111');
+```
+
+个人版本：
+
+```js
+let maskify = cc => {
+  return cc.length > 4?
+  cc.slice( 0, -4).replace(/(\w)/g,'#') + cc.slice(-4):
+  cc;
+  }
+```
+
+优化版本：
+
+```js
+let maskify = str => str.slice(0,-4).replace(/./g,'#') + str.slice(-4)
+```
+
