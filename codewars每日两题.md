@@ -924,3 +924,38 @@ let maskify = cc => {
 let maskify = str => str.slice(0,-4).replace(/./g,'#') + str.slice(-4)
 ```
 
+# 第四十七题、获取字符串中英文字母‘m’字后的英文字母‘a-z’所占的比例？
+
+示例:
+
+```js
+s="aaabbbbhaijjjm"
+error_printer(s) => "0/14"
+
+s="aaaxbbbbyyhwawiwjjjwwm"
+error_printer(s) => "8/22"
+```
+
+个人版本：
+
+```js
+let printerError = s =>{ 
+  let sortS = s.split('').sort((a,b)=> a.localeCompare(b)),
+      idx  = sortS.lastIndexOf('m')
+  return sortS.slice(idx).length - 1 + '/' + s.length
+}
+```
+
+正则怎么这么牛逼版本：
+
+```js
+let printerError = s => (s.match(/[^a-m]/g)|| []).length + '/' + s.length
+let printerError = s => (s.match(/[n-z]/g)|| []).length + '/' + s.length
+```
+
+知识点：
+
+1. match()方法如果没有匹配项，返回的不是`[]`而是`null`
+
+# 第四十八题、
+
