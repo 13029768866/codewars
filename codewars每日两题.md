@@ -880,3 +880,9 @@ let order = words => {
 let order = words => words.split(' ').sort((a,b) => a.match(/\d/)  - b.match(/\d/)).join(' ')
 ```
 
+# 四十三题、bool类型转化成字符串？
+
+```js
+
+```
+
