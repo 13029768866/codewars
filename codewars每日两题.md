@@ -892,3 +892,9 @@ let order = words => words.split(' ').sort((a,b) => a.match(/\d/)  - b.match(/\d
 let numToString = num => num.toString()
 ```
 
+# 第四十五题、字符串去除第一项和最后一项？
+
+```js
+let removeChar = str => str.slice(1,-1)
+```
+
