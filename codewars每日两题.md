@@ -886,3 +886,9 @@ let order = words => words.split(' ').sort((a,b) => a.match(/\d/)  - b.match(/\d
 
 ```
 
+# 第四十四题、其他类型转成字符串？
+
+```js
+let numToString = num => num.toString()
+```
+
