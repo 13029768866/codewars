@@ -957,5 +957,33 @@ let printerError = s => (s.match(/[n-z]/g)|| []).length + '/' + s.length
 
 1. match()方法如果没有匹配项，返回的不是`[]`而是`null`
 
-# 第四十八题、
+# 第四十八题、数字校验？
+
+示例：
+
+```js
+validatePIN("1234") === true
+validatePIN("12345") === false
+validatePIN("a234") === false
+
+只能4或6位纯数字
+```
+
+个人版本：
+
+```js
+let validatePIN = pin => {
+  if(pin.length == 4 || pin.length == 6){
+    return pin.match(/\d/g).length == pin.length
+  }else{
+    return false;
+  }
+}
+```
+
+正则版本牛逼：
+
+```js
+let validatePIN = pin => /^(\d{4}|\d{6})$/.test(pin)
+```
 
