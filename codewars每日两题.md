@@ -883,7 +883,7 @@ let order = words => words.split(' ').sort((a,b) => a.match(/\d/)  - b.match(/\d
 # 四十三题、bool类型转化成字符串？
 
 ```js
-
+let boolToString = bool => bool.toString()
 ```
 
 # 第四十四题、其他类型转成字符串？
@@ -985,5 +985,28 @@ let validatePIN = pin => {
 
 ```js
 let validatePIN = pin => /^(\d{4}|\d{6})$/.test(pin)
+```
+
+# 第四十九题、偶数数组获取奇数的索引，技术数组获取偶数的索引？
+
+示例：
+
+```js
+iqTest("2 4 7 8 10") => 3 // Third number is odd, while the rest of the numbers are even
+iqTest("1 2 1 1") => 2 // Second number is even, while the rest of the numbers are odd
+```
+
+个人完成版本：
+
+```js
+let iqTest = num => {
+  let arr = num.split(' '),
+      evenArr = arr.filter(item => item % 2),
+      oddArr = arr.filter(item => !(item % 2))
+      
+   return evenArr.length == 1?
+          1 + arr.indexOf(evenArr[0]) :
+          1+ arr.indexOf(oddArr[0])
+}
 ```
 
