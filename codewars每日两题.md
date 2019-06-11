@@ -987,7 +987,7 @@ let validatePIN = pin => {
 let validatePIN = pin => /^(\d{4}|\d{6})$/.test(pin)
 ```
 
-# 第四十九题、偶数数组获取奇数的索引，技术数组获取偶数的索引？
+# 第四十九题、偶数数组获取奇数的索引，奇数数组获取偶数的索引？
 
 示例：
 
@@ -1007,6 +1007,31 @@ let iqTest = num => {
    return evenArr.length == 1?
           1 + arr.indexOf(evenArr[0]) :
           1+ arr.indexOf(oddArr[0])
+}
+```
+
+# 第五十题、神奇的数字？
+
+```js
+digPow(89, 1) should return 1 since 8¹ + 9² = 89 = 89 * 1
+digPow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 * k
+digPow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+```
+
+个人版本：
+
+```js
+let digPow = (n, p) => {
+  let sum = 0;
+
+  [...n.toString()].map((item) =>{    
+    sum += Math.pow(Number(item),p)
+    p++
+  })
+  return Number.isInteger(sum / n)?
+         sum / n:
+         - 1;
 }
 ```
 
