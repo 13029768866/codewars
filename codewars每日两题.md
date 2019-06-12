@@ -823,6 +823,8 @@ let duplicateCount = text => {
 let duplicateCount = text => (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length
 ```
 
+`/([^])\1+/ `  任意地方匹配连续出现多次
+
 # 第四十一题、数组、字符串连续出现去重？
 
 示例：
@@ -1033,5 +1035,13 @@ let digPow = (n, p) => {
          sum / n:
          - 1;
 }
+```
+
+# 第五十一题、2个数字求和并且转化成二进制的数？
+
+个人版本：
+
+```js
+let addBinary = (a,b) => (a + b).toString(2)
 ```
 
