@@ -1130,7 +1130,7 @@ const openOrSenior = data => data.map(item => {
 })
 ```
 
-解构进阶：
+解构赋值进阶：
 
 ```js
 const openOrSenior = data => data.map(([age,level]) => age >= 55 && level > 7? 'Senior':'Open')
