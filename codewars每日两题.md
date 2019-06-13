@@ -1073,5 +1073,66 @@ let findEvenIndex = arr => {
 }
 ```
 
+# 第五十三题、字符串中每个英文字符在字母表的位置拼接成一个空格隔开的字符串？
 
+示例：
+
+```js
+Test.assertEquals(alphabetPosition("The sunset sets at twelve o' clock."), "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11");
+Test.assertEquals(alphabetPosition("The narwhal bacons at midnight."), "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20");
+```
+
+个人完成版本：
+
+```js
+const alphabetPosition = text =>{
+ let str =  text.toLowerCase().replace(/[^a-z]/g,''),
+     letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
+     arr = []
+     str.split('').map(item => arr.push(letters.indexOf(item) + 1))
+     return arr.join(' ')
+}
+```
+
+优化进阶版本：
+
+```js
+const alphabetPosition = text => text.toUpperCase().replace(/[^A-Z]/g,'').split('').map(item => item.charCodeAt() - 64).join(' ')
+```
+
+知识点：
+
+`str.charCodeAt(index)`可以获得其Unicode值,A-Z所对应的的值减去64就可以得到字母表中对应位置
+
+# 第五十四题、获取数组中为true项的个数？
+
+```js
+const countSheeps = arr => arr.filter(item => item == true).length
+const countSheeps = arr => arr.filter(Boolean).length
+```
+
+# 第五十五题、二维数组条件判断？
+
+示例：
+
+```js
+Test.assertSimilar(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]]),['Open', 'Senior', 'Open', 'Senior'])
+Test.assertSimilar(openOrSenior([[3, 12],[55,1],[91, -2],[54, 23]]),['Open', 'Open', 'Open', 'Open'])
+Test.assertSimilar(openOrSenior([[59, 12],[55,-1],[12, -2],[12, 12]]),['Senior', 'Open', 'Open', 'Open'])
+```
+
+个人版本：
+
+```js
+const openOrSenior = data => data.map(item => {
+ return item[0] >=55 && item[1] > 7?
+        'Senior':'Open';
+})
+```
+
+解构进阶：
+
+```js
+const openOrSenior = data => data.map(([age,level]) => age >= 55 && level > 7? 'Senior':'Open')
+```
 
