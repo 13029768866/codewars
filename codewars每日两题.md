@@ -1136,3 +1136,4 @@ const openOrSenior = data => data.map(item => {
 const openOrSenior = data => data.map(([age,level]) => age >= 55 && level > 7? 'Senior':'Open')
 ```
 
+ 
