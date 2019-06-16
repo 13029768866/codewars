@@ -1158,3 +1158,11 @@ const divisors = num => {
 }
 ```
 
+# 第五十七题、去除字符串中所有空格？
+
+个人答案：
+
+```js
+const noSpace = s => s.replace(/\s/g,'')
+```
+
