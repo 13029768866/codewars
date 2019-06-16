@@ -1136,4 +1136,25 @@ const openOrSenior = data => data.map(item => {
 const openOrSenior = data => data.map(([age,level]) => age >= 55 && level > 7? 'Senior':'Open')
 ```
 
- 
+ # 第五十六题、获取一个数字的所有公约数组成的数组？
+
+示例：
+
+```js
+divisors(12); // should return [2,3,4,6]
+divisors(25); // should return [5]
+divisors(13); // should return "13 is prime"
+```
+
+个人完成最终版本：
+
+```js
+const divisors = num => {
+  let res = [];
+  for(let i = 2; i < num - 1; i++){
+    Number.isInteger(num / i)?res.push(i):'';
+  }
+  return res.length?res: `${num} is prime`
+}
+```
+
