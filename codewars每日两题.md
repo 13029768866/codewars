@@ -1166,3 +1166,50 @@ const divisors = num => {
 const noSpace = s => s.replace(/\s/g,'')
 ```
 
+# 第五十八题、名字获取？
+
+示例：
+
+```js
+list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ])
+// returns 'Bart, Lisa & Maggie'
+
+list([ {name: 'Bart'}, {name: 'Lisa'} ])
+// returns 'Bart & Lisa'
+
+list([ {name: 'Bart'} ])
+// returns 'Bart'
+
+list([])
+// returns ''
+```
+
+个人笨比版本：
+
+```js
+const list =  names => {
+  names  = names.map(item => item['name'])
+  let res =[
+    ``,
+    `${names[0]}`,
+    `${names[0]} & ${names[1]}`
+  ]
+ console.log(names,res[names.length - 2])
+  return names.length < 3?
+  res[names.length]:
+  names.slice(0,names.length - 1).join(', ') + ` & ${names[names.length - 1]}`
+}
+```
+
+我变强了版本：
+
+```js
+const list = names =>{
+  let aNames = names.map(item => item['name']),
+      lastItem = aNames.pop()
+   return aNames.length?
+          aNames.join(', ') + ' & ' + lastItem:
+          lastItem || '';
+}
+```
+
