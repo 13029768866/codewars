@@ -1213,3 +1213,22 @@ const list = names =>{
 }
 ```
 
+# 第五十九题、二进制转化成10进制数字？
+
+示例：
+
+```js
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+```
+
+个人完成版本：
+
+```js
+const binaryArrayToNumber = arr => parseInt(arr.join(''),2)
+```
+
+`toSting()`可以通过设置数值把10进制转换成二进制。
+
+`parseInt()`可以反向转化
