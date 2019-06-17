@@ -1262,3 +1262,21 @@ const pigIt = s => {
 const pigIt = s => s.replace(/(\w)(\w*)(\s|$)/g,'\$2\$1ay\$3')
 ```
 
+# 8Ku题目库（二阶段系列）
+
+#  7Ku题目库（二阶段系列）
+
+## 第六十一题、数组条件过滤
+
+示例：获取数组中长度为4的字符
+
+个人版本：
+
+```js
+const friend = fs => fs.filter(item => item.length == 4)
+```
+
+# 6Ku题目库（二阶段系列）
+
+# 5Ku题目库（二阶段系列）
+
