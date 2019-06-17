@@ -1232,3 +1232,33 @@ const binaryArrayToNumber = arr => parseInt(arr.join(''),2)
 `toSting()`可以通过设置数值把10进制转换成二进制。
 
 `parseInt()`可以反向转化
+
+# 第六十题、字符串中每个单词首字母拼接+‘ay’放置到单词末尾？
+
+示例：
+
+```js
+pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+pigIt('Hello world !');     // elloHay orldway !
+```
+
+不会正则的悲哀：
+
+```js
+const pigIt = s => {
+  s = s.split(' ')
+  s =  s.map(item => {
+   if( item != '!' && item != '?'){
+   return  item + item.slice(0,1) + 'ay'
+     }else{ return item }
+   })
+  return s.join(' ').replace(/( |^)[a-z]/ig,' ').trim()
+}
+```
+
+正则的优雅：
+
+```js
+const pigIt = s => s.replace(/(\w)(\w*)(\s|$)/g,'\$2\$1ay\$3')
+```
+
