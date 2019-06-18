@@ -1277,6 +1277,24 @@ const solution = s => s.split('').reverse().join('')
 const solution = s => [...s].reverse().join('')
 ```
 
+## 第六十四题、数字求和？
+
+示例：
+
+```js
+summation(2) -> 3
+1 + 2
+
+summation(8) -> 36
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
+```
+
+求和公式：
+
+```js
+const summation = n => (n + 1) * n / 2
+```
+
 #  7Ku题目库（二阶段系列）
 
 ## 第六十一题、数组条件过滤
