@@ -1309,5 +1309,45 @@ const friend = fs => fs.filter(item => item.length == 4)
 
 # 6Ku题目库（二阶段系列）
 
+## 第六十五题、判断一个数字是否是一个阶乘数字？
+
+示例：
+
+```js
+findNb(1071225) --> 45
+45 ^ 3 + 44 ^3 +……+1^3 == 1071225
+findNb(91716553919377) --> -1
+```
+
+个人版本：
+
+```js
+const findNb = (m,count) => {
+ var count = count || 2,
+     res = 0
+ for(let i = 1; i <= count; i++){
+   res += Math.pow(i,3)
+ } 
+ if(res < m){
+  count++
+  return findNb(m,count)
+ }else if(res == m){
+   return count
+ }else{
+   return -1;
+ }
+}
+```
+
+相同思路玩出花的大神版本：
+
+```js
+const findNb = m => {
+  let n = 0;
+  while(m > 0) m-= ++n**3
+  return m ? -1:n;
+}
+```
+
 # 5Ku题目库（二阶段系列）
 
