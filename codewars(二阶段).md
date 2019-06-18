@@ -1270,6 +1270,13 @@ const pigIt = s => s.replace(/(\w)(\w*)(\s|$)/g,'\$2\$1ay\$3')
 const basicOp = (m,v1,v2) => eval(v1+m+v2)
 ```
 
+## 第六十三题、字符串反转
+
+```js
+const solution = s => s.split('').reverse().join('')
+const solution = s => [...s].reverse().join('')
+```
+
 #  7Ku题目库（二阶段系列）
 
 ## 第六十一题、数组条件过滤
