@@ -1136,6 +1136,7 @@ const openOrSenior = data => data.map(item => {
 const openOrSenior = data => data.map(([age,level]) => age >= 55 && level > 7? 'Senior':'Open')
 ```
 
+<<<<<<< HEAD:codewars每日两题.md
  # 第五十六题、数组中最小两个数求和？
 
 个人版本
@@ -1155,4 +1156,229 @@ let sumTwoSmallestNumbers = (arr) => {
   return a+b
 }
 ```
+
+=======
+ # 第五十六题、获取一个数字的所有公约数组成的数组？
+
+示例：
+
+```js
+divisors(12); // should return [2,3,4,6]
+divisors(25); // should return [5]
+divisors(13); // should return "13 is prime"
+```
+
+个人完成最终版本：
+
+```js
+const divisors = num => {
+  let res = [];
+  for(let i = 2; i < num - 1; i++){
+    Number.isInteger(num / i)?res.push(i):'';
+  }
+  return res.length?res: `${num} is prime`
+}
+```
+
+# 第五十七题、去除字符串中所有空格？
+
+个人答案：
+
+```js
+const noSpace = s => s.replace(/\s/g,'')
+```
+
+# 第五十八题、名字获取？
+
+示例：
+
+```js
+list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ])
+// returns 'Bart, Lisa & Maggie'
+
+list([ {name: 'Bart'}, {name: 'Lisa'} ])
+// returns 'Bart & Lisa'
+
+list([ {name: 'Bart'} ])
+// returns 'Bart'
+
+list([])
+// returns ''
+```
+
+个人笨比版本：
+
+```js
+const list =  names => {
+  names  = names.map(item => item['name'])
+  let res =[
+    ``,
+    `${names[0]}`,
+    `${names[0]} & ${names[1]}`
+  ]
+ console.log(names,res[names.length - 2])
+  return names.length < 3?
+  res[names.length]:
+  names.slice(0,names.length - 1).join(', ') + ` & ${names[names.length - 1]}`
+}
+```
+
+我变强了版本：
+
+```js
+const list = names =>{
+  let aNames = names.map(item => item['name']),
+      lastItem = aNames.pop()
+   return aNames.length?
+          aNames.join(', ') + ' & ' + lastItem:
+          lastItem || '';
+}
+```
+
+# 第五十九题、二进制转化成10进制数字？
+
+示例：
+
+```js
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+```
+
+个人完成版本：
+
+```js
+const binaryArrayToNumber = arr => parseInt(arr.join(''),2)
+```
+
+`toSting()`可以通过设置数值把10进制转换成二进制。
+
+`parseInt()`可以反向转化
+
+# 第六十题、字符串中每个单词首字母拼接+‘ay’放置到单词末尾？
+
+示例：
+
+```js
+pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+pigIt('Hello world !');     // elloHay orldway !
+```
+
+不会正则的悲哀：
+
+```js
+const pigIt = s => {
+  s = s.split(' ')
+  s =  s.map(item => {
+   if( item != '!' && item != '?'){
+   return  item + item.slice(0,1) + 'ay'
+     }else{ return item }
+   })
+  return s.join(' ').replace(/( |^)[a-z]/ig,' ').trim()
+}
+```
+
+正则的优雅：
+
+```js
+const pigIt = s => s.replace(/(\w)(\w*)(\s|$)/g,'\$2\$1ay\$3')
+```
+
+# 8Ku题目库（二阶段系列）
+
+## 六十二题、根据传递过来的方法，对两个数字进行运算 
+
+```js
+const basicOp = (m,v1,v2) => eval(v1+m+v2)
+```
+
+## 第六十三题、字符串反转
+
+```js
+const solution = s => s.split('').reverse().join('')
+const solution = s => [...s].reverse().join('')
+```
+
+## 第六十四题、数字求和？
+
+示例：
+
+```js
+summation(2) -> 3
+1 + 2
+
+summation(8) -> 36
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
+```
+
+求和公式：
+
+```js
+const summation = n => (n + 1) * n / 2
+```
+
+#  7Ku题目库（二阶段系列）
+
+## 第六十一题、数组条件过滤
+
+示例：获取数组中长度为4的字符
+
+个人版本：
+
+```js
+const friend = fs => fs.filter(item => item.length == 4)
+```
+
+## 第六十六题、数组最小两数之和
+
+```js
+ let sumTwoSmallestNumbers = numbers => {  
+  let [ a, b ] = numbers.sort((a, b) => a - b)
+  return a + b
+}
+```
+
+# 6Ku题目库（二阶段系列）
+
+## 第六十五题、判断一个数字是否是一个阶乘数字？
+
+示例：
+
+```js
+findNb(1071225) --> 45
+45 ^ 3 + 44 ^3 +……+1^3 == 1071225
+findNb(91716553919377) --> -1
+```
+
+个人版本：
+
+```js
+const findNb = (m,count) => {
+ var count = count || 2,
+     res = 0
+ for(let i = 1; i <= count; i++){
+   res += Math.pow(i,3)
+ } 
+ if(res < m){
+  count++
+  return findNb(m,count)
+ }else if(res == m){
+   return count
+ }else{
+   return -1;
+ }
+}
+```
+
+相同思路玩出花的大神版本：
+
+```js
+const findNb = m => {
+  let n = 0;
+  while(m > 0) m-= ++n**3
+  return m ? -1:n;
+}
+```
+
+# 5Ku题目库（二阶段系列）
 
