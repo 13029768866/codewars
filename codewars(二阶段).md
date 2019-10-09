@@ -1338,6 +1338,30 @@ const friend = fs => fs.filter(item => item.length == 4)
 }
 ```
 
+## 第六十七题、奇数三角形行数求和
+
+题目：
+
+```
+           1
+          3     5
+       7     9    11
+   13    15    17    19
+21    23    25    27    29
+...
+
+rowSumOddNumbers(1); // 1
+rowSumOddNumbers(2); // 3 + 5 = 8
+```
+
+个人答案
+
+```js
+let rowSumOddNumbers = n => {
+  return Math.pow(n,2) * n
+}
+```
+
 # 6Ku题目库（二阶段系列）
 
 ## 第六十五题、判断一个数字是否是一个阶乘数字？
