@@ -1136,4 +1136,23 @@ const openOrSenior = data => data.map(item => {
 const openOrSenior = data => data.map(([age,level]) => age >= 55 && level > 7? 'Senior':'Open')
 ```
 
- 
+ # 第五十六题、数组中最小两个数求和？
+
+个人版本
+
+```js
+let sumTwoSmallestNumbers = (arr) => {
+   arr = arr.sort((a,b)=>a-b)
+   return arr[0] + arr[1]
+}
+```
+
+升级优化版本
+
+```js
+let sumTwoSmallestNumbers = (arr) => {
+  let [a,b] = arr.sort((a,b)=> a - b)
+  return a+b
+}
+```
+
