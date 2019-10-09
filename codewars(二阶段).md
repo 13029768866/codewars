@@ -1358,7 +1358,7 @@ rowSumOddNumbers(2); // 3 + 5 = 8
 
 ```js
 let rowSumOddNumbers = n => {
-  return Math.pow(n,2) * n
+  return Math.pow(n,3) 
 }
 ```
 
