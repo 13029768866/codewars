@@ -1317,6 +1317,25 @@ summation(8) -> 36
 const summation = n => (n + 1) * n / 2
 ```
 
+# 第六十八题、数组平方求和？
+
+题目示例：
+
+```js
+Test.assertEquals(squareSum([1,2]), 5)
+Test.assertEquals(squareSum([0, 3, 4, 5]), 50)
+```
+
+个人版本
+
+```js
+let squareSum = arr => {
+  let sum = 0;
+  arr.map(item => sum += Math.pow(item,2)) 
+  return sum
+}
+```
+
 #  7Ku题目库（二阶段系列）
 
 ## 第六十一题、数组条件过滤
